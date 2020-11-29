@@ -31,18 +31,18 @@ pickle 文件，保存了全部股票的详细统计数据，比如具体哪些 
 
 首先：
 
-```
-    r_squared = 1 - res_ss / tot_ss = 1 - res_ms / (y_ms - y_m ** 2)
+```python
+r_squared = 1 - res_ss / tot_ss = 1 - res_ms / (y_ms - y_m ** 2)
 ```
 
 其中 `res_ss` 是 residual sum of squares，`tot_ss` 是 total sum of squares，`res_ms` 是 residuals mean of squares，`y_ms` 是真实值 y 的 mean of squares，`y_m` 是真实值 y 的 mean。
 
 这种形式意味着各统计量可以进行动态更新而无需保留过多的历史状态：
 
-```
-    y_m' = n / (n + 1) * y_m + 1 / (n + 1) * y
-    y_ms' = n / (n + 1) * y_ms + 1 / (n + 1) * y ** 2
-    res_ms' = n / (n + 1) * res_ms + 1 / (n + 1) * (y - f) ** 2
+```python
+y_m_ = n / (n + 1) * y_m + 1 / (n + 1) * y
+y_ms_ = n / (n + 1) * y_ms + 1 / (n + 1) * y ** 2
+res_ms_ = n / (n + 1) * res_ms + 1 / (n + 1) * (y - f) ** 2
 ```
 
 因此设计了下面的数据结构：
@@ -92,8 +92,8 @@ stocks_stats = {
 
 当数据收集完成后，对每一个 `stock`，使用下面公式即可算出 `r_squared`：
 
-```
-    r_squared = 1 - res_ms / (y_ms - y_m ** 2)
+```python
+r_squared = 1 - res_ms / (y_ms - y_m ** 2)
 ```
 
 ### 数据流
