@@ -9,4 +9,4 @@
 ```
     r_squared = 1 - res_ss / tot_ss = 1 - res_ms / (y_ms - y_m ** 2)
 ```
-其中 `res_ss` 是 residuals sum of squares，`tot_ss` 是 total sum of squares，`res_ms` 是 residuals mean of squares，`y_ms` 是真实值 y 的 mean of squares，`y_m` 是真实值 y 的 mean。
+其中 `res_ss` 是 residual sum of squares，`tot_ss` 是 total sum of squares，`res_ms` 是 residuals mean of squares，`y_ms` 是真实值 y 的 mean of squares，`y_m` 是真实值 y 的 mean。
